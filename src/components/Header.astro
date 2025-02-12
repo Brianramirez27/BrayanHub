@@ -1,0 +1,30 @@
+---
+import { NavigationWrapper } from "./wrapper/NavigationWrapper";
+import { ModeToggle } from "./ModeToggle";
+import type { loadApp } from "astro/app/node";
+---
+
+<header
+  class="w-full max-w-[1920px] h-[60%]             flex flex-col justify-between items-center px-4 pl-8 pr-8"
+>
+  <ModeToggle client:load persist:keep-alive />
+  <div
+    class="flex flex-col  justify-center items-center gap-5 w-full max-w-[40%] h-full"
+  >
+    <img
+      src="/public/photoprofile.webp"
+      class="w-full max-w-[8rem] h-full max-h-[8rem] border-4 border-primary rounded-full"
+    />
+    <span class="text-primary text-3xl font-bold "
+      >Brayan Ramirez</span
+    >
+    <span class="text-center">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
+      quaerat illum blanditiis nemo, doloribus iure asperiores provident
+      similique temporibus ipsa pariatur officiis cum porro suscipit, corporis
+      cupiditate voluptates qui eligendi.
+    </span>
+  </div>
+
+  <NavigationWrapper  client:load persist:keep-alive />
+</header>
