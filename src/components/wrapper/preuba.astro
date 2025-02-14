@@ -1,0 +1,56 @@
+---
+
+
+import {
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+} from "@/components/ui/tabs"
+---
+   
+      <Tabs defaultValue="account" className="w-full">
+        <TabsList className="grid w-full grid-cols-6">
+          <TabsTrigger value="general">General</TabsTrigger>
+          <TabsTrigger value="frontend">Frontend</TabsTrigger>
+          <TabsTrigger value="backend">Backend</TabsTrigger>
+          <TabsTrigger value="arquictetura">Arquictetura</TabsTrigger>
+          <TabsTrigger value="rendimiento">Rendimiento</TabsTrigger>
+          <TabsTrigger value="seguridad">Seguridad</TabsTrigger>
+
+        </TabsList>
+        <TabsContent value="general">
+         <div>
+            <h1>Genera</h1>
+         </div>
+        </TabsContent>
+        <TabsContent value="frontend">
+         <div>
+            <h1>frontend</h1>
+         </div>
+         </TabsContent>
+         <TabsContent value="backend">
+         <div>
+            <h1>Backend</h1>
+         </div>
+         </TabsContent>
+         <TabsContent value="arquictetura">
+         <div>
+            <h1>Arquictetura</h1>
+         </div>
+         </TabsContent>
+         <TabsContent value="rendimiento">
+         <div>
+            <h1>Rendimiento</h1>
+         </div>
+         </TabsContent>
+         <TabsContent value="seguridad">
+         <div>
+            <h1>Seguridad</h1>
+         </div>
+         </TabsContent>
+      </Tabs>
+    
+
+
+  

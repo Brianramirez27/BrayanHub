@@ -1,7 +1,7 @@
 ---
-import { NavigationWrapper } from "./wrapper/NavigationWrapper";
+import NavigationHeaderWrapper  from "@/components/wrapper/NavigationHeaderWrapper";
 import { ModeToggle } from "./ModeToggle";
-import type { loadApp } from "astro/app/node";
+
 ---
 
 <header
@@ -12,7 +12,7 @@ import type { loadApp } from "astro/app/node";
     class="flex flex-col  justify-center items-center gap-5 w-full max-w-[40%] h-full"
   >
     <img
-      src="/public/photoprofile.webp"
+      src="/photoprofile.webp"
       class="w-full max-w-[8rem] h-full max-h-[8rem] border-4 border-primary rounded-full"
     />
     <span class="text-primary text-3xl font-bold "
@@ -26,5 +26,5 @@ import type { loadApp } from "astro/app/node";
     </span>
   </div>
 
-  <NavigationWrapper  client:load persist:keep-alive />
+  <NavigationHeaderWrapper  />
 </header>

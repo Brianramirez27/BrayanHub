@@ -1,0 +1,43 @@
+---
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+import DialogProjectWrapper from"@/components/wrapper/DialogProjectsWrapper"
+
+import { getCollection } from "astro:content";
+import type {CollectionEntry } from "astro:content";
+
+const projects:CollectionEntry<"projects">[] = await getCollection("projects");
+---
+
+{projects.map((project: CollectionEntry<"projects">) => (
+    <Card className="w-[350px] cursor-pointer transition-all mb-6 duration-300 hover:shadow-xl hover:scale-105">
+      <CardHeader className="p-4 mb-3">
+        <img 
+          src={project.data.images?.[0] ?? "/default-image.jpg"} 
+          alt={project.data.title} 
+   
+        />
+      </CardHeader>
+      <CardContent>
+        <CardTitle className="text-primary">{project.data.title}</CardTitle>
+        <CardDescription>{project.data.description}</CardDescription>
+        <div class="flex flex-wrap gap-2 mt-2">
+          {project.data.technologies.map((tech) => (
+            <p  class="px-2 py-1 bg-muted rounded text-sm">{tech}</p>
+          ))}
+        </div>
+      </CardContent>
+      <CardFooter className="flex justify-between">
+        <DialogProjectWrapper client:visible  project={project}>Más Detalles</DialogProjectWrapper>
+      </CardFooter>
+    </Card>
+  ))}
+
