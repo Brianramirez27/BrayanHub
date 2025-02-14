@@ -5,10 +5,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
-import { useEffect, useState } from "react";
+
 
 const NavigationHeaderWrapper = () => {
- const[menuSelect,setMenuSelect]= useState("projects")
+
 
  const routes=[
   { href: "/projects", label: "Proyectos" },
@@ -28,14 +28,8 @@ const NavigationHeaderWrapper = () => {
         <NavigationMenuItem key={index}>
         <NavigationMenuLink
           href={route.href}
-          className={`${navigationMenuTriggerStyle()} ${
-            menuSelect === route.href ? "bg-muted-foreground text-primary" : ""
-          }`}
-          onClick={(e) => {
-            e.preventDefault(); // Evita la navegación
-            setMenuSelect(route.href);
-             
-          }}
+          className={navigationMenuTriggerStyle()}
+  
         >
           {route.label}
         </NavigationMenuLink>
