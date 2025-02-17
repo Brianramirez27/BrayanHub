@@ -1,0 +1,76 @@
+---
+import { Separator } from "@radix-ui/react-dropdown-menu";
+import Layout from "../layouts/Layout.astro";
+import { Mail, Github, Linkedin, MapPin } from "lucide-react";
+---
+
+<Layout>
+  <section class="w-[80%] p-6 border border-accent rounded-lg mt-6 shadow-lg">
+    <div class="flex items-center gap-4 rounded-lg">
+      <a
+        href="mailto:your-email@example.com"
+        class="text-primary hover:text-blue-600 transition-colors"
+      >
+        <Mail className="h-6 w-6 hover:scale-110 transition-transform" />
+      </a>
+      <p class="text-lg font-semibold">Contactemos</p>
+    </div>
+
+    <div class="w-full flex justify-between pt-4 rounded-lg">
+      <!-- Sección de Ubicación y Email -->
+      <div class="flex flex-col gap-4 w-[50%]">
+        <div class="flex flex-col gap-2">
+          <span class="font-semibold text-sm">Ubicación</span>
+          <div class="flex items-center gap-2">
+            <MapPin className="h-5 w-5 text-primary" />
+            <p class="text-muted-foreground text-sm">Bogotá, Colombia</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <span class="font-semibold text-sm">Email</span>
+          <div class="flex items-center gap-2">
+            <Mail className="h-5 w-5 text-primary" />
+            <a
+              href="mailto:brayanramirez4546@gmail.com"
+              class="hover:underline text-sm text-muted-foreground"
+            >
+              brayanramirez4546@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Redes Sociales -->
+      <div class="w-[50%]">
+        <h2 class="font-semibold text-sm">Redes Sociales</h2>
+        <div class="flex flex-col gap-4 mt-2 w-full">
+          <a
+            href="https://www.linkedin.com/in/your-profile"
+            target="_blank"
+            class="flex flex-row hover:scale-105 items-center gap-2 text-primary transition-transform w-full border border-accent rounded-2xl pl-4 p-1"
+          >
+            <Linkedin
+              className="h-6 w-6  transition-transform drop-shadow-md"
+            />
+            <p class="text-muted-foreground text-sm">Linkedin</p>
+          </a>
+
+          <a
+            href="https://github.com/your-profile"
+            target="_blank"
+            class="flex flex-row items-center gap-2 hover:scale-105 transition-transform text-primary w-full border border-accent rounded-2xl pl-4 p-1"
+          >
+            <Github className="h-6 w-6 drop-shadow-md" />
+            <p class="text-muted-foreground text-sm">Git Hab</p>
+          </a>
+        </div>
+        <Separator />
+        <p class="text-muted-foreground text-sm mt-1">
+          ¿Interesado en colaborar? Contáctame a través de LinkedIn o envíame un
+          email profesional. Siempre estoy abierto a discutir nuevos proyectos y
+          oportunidades de desarrollo tecnológico.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -16,7 +16,7 @@ const NavigationHeaderWrapper = () => {
   { href: "/estudies", label: "Estudios" },
   { href: "/about-me", label: "Sobre mí" },
   { href: "/skills", label: "Skills" },
-  { href: "/", label: "Contacto" },]
+  { href: "/contact", label: "Contacto" },]
 
 
 
