@@ -1,8 +1,124 @@
 ---
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { Clock, Briefcase, Trophy, Award } from 'lucide-react';
 
-import Layout from "@/layouts/Layout.astro"
+let totalMonths = 0;
+let roles: string[] = [];
+let companys: string[] = [];
+
+// Obtener las entradas de experiencia de forma asíncrona
+const experienceEntries: CollectionEntry<"experience">[] = await getCollection("experience");
+
+// Recorremos las entradas de experiencia
+experienceEntries.forEach((exp) => {
+  // Recorremos los roles de cada empresa
+  exp.data.roles.forEach((role) => {
+    // Comprobamos si el rol ya ha sido agregado
+    if (!roles.includes(role.title)) {
+      roles.push(role.title); // Agregar el rol si no está duplicado
+    }
+
+    // Comprobamos si la empresa ya ha sido agregada
+    if (!companys.includes(exp.data.company)) {
+      companys.push(exp.data.company); // Agregar la empresa si no está duplicada
+    }
+
+    // Sumamos la duración de cada rol
+    totalMonths += role.duration;
+  });
+});
+
+// Calculamos los años y los meses
+const totalYears = Math.floor(totalMonths / 12);
+totalMonths = totalMonths % 12;
+
 ---
- 
+
 <Layout>
-    <span class="bg-red-600">Pagina experiencia</span>
+  <section class="container w-[80%] p-6 flex flex-col items-center gap-6">
+    <div
+      class="w-full gap-2 rounded-lg text-center py-4 font-semibold  grid grid-cols-3"
+    >
+    
+      <div
+        class="w-full rounded-lg text-center gap-3 py-4 font-semibold border border-accent flex justify-center items-center"
+      >
+      <Clock className="h-10 w-10 text-primary" />
+      <div class="flex flex-col">
+          <p class="text-4xl">{totalYears} +</p>
+          <p >{totalMonths} Meses</p>
+          <p>De Experiencia</p>
+        </div>
+      </div>
+
+      <div class="w-full rounded-lg text-center  gap-3 py-4 font-semibold border border-accent flex justify-center items-center">
+        <Trophy className="h-10 w-10 text-primary" />
+        <div class="felx flex-col">
+            <p class="text-4xl">{companys.length}</p>
+            <p> Roles</p>
+        </div>
+      </div>
+      <div class="w-full rounded-lg text-center gap-3 py-4 font-semibold border border-accent flex justify-center items-center">
+        <Award className="h-10 w-10 text-primary" />
+        <div class="flex flex-col">
+
+            <p class="text-4xl">{roles.length}</p>
+            <p>Empresas</p>
+        </div>
+      </div>
+    </div>
+    {
+      experienceEntries.map((exp) => (
+        <Card className="w-full flex flex-col items-center gap-2 p-4">
+          <h3 class="w-[90%] text-lg text-primary flex py-5">
+            {exp.data.company}
+          </h3>
+
+          {exp.data.roles.map((role) => (
+            <div class="w-[90%] relative">
+              <CardHeader className="border-l-2 border-l-primary h-[3rem] flex justify-center">
+                <CardTitle className="text-lg">{role.title}</CardTitle>
+                <CardDescription className="absolute right-2">
+                  {role.startDate} / {role.endDate ?? "Presente"}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="border-l-2 border-l-primary">
+                <p class="font-semibold">Responsabilidades:</p>
+                <ul class="list-disc ml-5 marker:text-primary text-sm">
+                  {role.responsibilities.map((responsibility, index) => (
+                    <li>{responsibility}</li>
+                  ))}
+                </ul>
+
+                <p class="font-semibold mt-2">Tecnologías:</p>
+                <div class="flex flex-wrap gap-2">
+                  {role.technologies.map((tech, index) => (
+                    <span class="px-2 py-1 bg-muted rounded text-sm">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                {role.relatedProjects?.length > 0 && (
+                  <a
+                    href={role.relatedProjects[0]}
+                    class="text-blue-500 hover:underline"
+                  >
+                    Ver Proyecto
+                  </a>
+                )}
+              </CardFooter>
+            </div>
+          ))}
+        </Card>
+      ))
+    }
+  </section>
 </Layout>
+
+
+<!-- saacr a  componetes separados -->

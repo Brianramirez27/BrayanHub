@@ -1,3 +1,4 @@
+import { Description } from "@radix-ui/react-dialog";
 import { defineCollection, z } from "astro:content";
 
 const projectsCollection = defineCollection({
@@ -28,6 +29,27 @@ const projectsCollection = defineCollection({
     }),
 });
 
+const experienceCollection = defineCollection({
+    type:"content",
+    schema: z.object({
+      company: z.string(),
+      roles: z.array(
+        z.object({
+          title: z.string(),
+          startDate: z.string(),
+          endDate: z.string(),
+          duration:z.number(),
+          location:z.string(),
+          description:z.string(),
+          responsibilities: z.array(z.string()),
+          technologies: z.array(z.string()),
+          relatedProjects: z.array(z.string()),
+        })
+      ),
+    }),
+  });
+
 export const collections = {
     "projects": projectsCollection,
+    "experience": experienceCollection
 };
