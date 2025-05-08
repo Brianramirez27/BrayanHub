@@ -11,7 +11,7 @@ const NavigationHeaderWrapper = () => {
 
 
  const routes=[
-  { href: "/projects", label: "Proyectos" },
+  { href: "/", label: "Proyectos" },
   { href: "/experience", label: "Experiencia" },
   { href: "/estudies", label: "Estudios" },
   { href: "/about-me", label: "Sobre mí" },

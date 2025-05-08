@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import projects from "@/pages/projects.astro"
+import CardProjects from "@/components/CardProjects.astro";
 ---
 
 <Layout>
-  <!-- <projects> -->
+  <section class="w-[80%] mx-auto grid grid-cols-3 place-items-center gap-2 overflow-hidden p-6">
+    <CardProjects></CardProjects>
+  </section>
 </Layout>
+                   
