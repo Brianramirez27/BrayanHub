@@ -37,9 +37,9 @@ const projects:CollectionEntry<"projects">[] = await getCollection("projects");
           </CardTitle>
          {/* Aquí va toda la lógica para comprobar y mostrar la descripción */}
         <CardDescription>
-          {project.data.description.length > 150
-            ? `${project.data.description.substring(0, 150)}...`
-            : project.data.description}
+          {project.data.general.overview.length > 150
+            ? `${project.data.general.overview.substring(0, 150)}...`
+            : project.data.general.overview}
         </CardDescription>
         
         <div class="flex flex-wrap gap-2 mt-2">

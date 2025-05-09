@@ -1,16 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { Clock, Briefcase, Trophy, Award } from 'lucide-react';
+import { Clock, Briefcase, Trophy, Award } from "lucide-react";
 
 let totalMonths = 0;
 let roles: string[] = [];
 let companys: string[] = [];
 
 // Obtener las entradas de experiencia de forma asíncrona
-const experienceEntries: CollectionEntry<"experience">[] = await getCollection("experience");
+const experienceEntries: CollectionEntry<"experience">[] =
+  await getCollection("experience");
 
 // Recorremos las entradas de experiencia
 experienceEntries.forEach((exp) => {
@@ -34,39 +42,40 @@ experienceEntries.forEach((exp) => {
 // Calculamos los años y los meses
 const totalYears = Math.floor(totalMonths / 12);
 totalMonths = totalMonths % 12;
-
 ---
 
 <Layout>
   <section class="container w-[80%] p-6 flex flex-col items-center gap-6">
     <div
-      class="w-full gap-2 rounded-lg text-center py-4 font-semibold  grid grid-cols-3"
+      class="w-full gap-2 rounded-lg text-center py-4 font-semibold grid grid-cols-3"
     >
-    
       <div
         class="w-full rounded-lg text-center gap-3 py-4 font-semibold border border-accent flex justify-center items-center"
       >
-      <Clock className="h-10 w-10 text-primary" />
-      <div class="flex flex-col">
+        <Clock className="h-10 w-10 text-primary" />
+        <div class="flex flex-col">
           <p class="text-4xl">{totalYears} +</p>
-          <p >{totalMonths} Meses</p>
+          <p>{totalMonths} Meses</p>
           <p>De Experiencia</p>
         </div>
       </div>
 
-      <div class="w-full rounded-lg text-center  gap-3 py-4 font-semibold border border-accent flex justify-center items-center">
+      <div
+        class="w-full rounded-lg text-center gap-3 py-4 font-semibold border border-accent flex justify-center items-center"
+      >
         <Trophy className="h-10 w-10 text-primary" />
         <div class="felx flex-col">
-            <p class="text-4xl">{companys.length}</p>
-            <p> Roles</p>
+          <p class="text-4xl">{roles.length}</p>
+          <p>Roles</p>
         </div>
       </div>
-      <div class="w-full rounded-lg text-center gap-3 py-4 font-semibold border border-accent flex justify-center items-center">
+      <div
+        class="w-full rounded-lg text-center gap-3 py-4 font-semibold border border-accent flex justify-center items-center"
+      >
         <Award className="h-10 w-10 text-primary" />
         <div class="flex flex-col">
-
-            <p class="text-4xl">{roles.length}</p>
-            <p>Empresas</p>
+          <p class="text-4xl">{companys.length}</p>
+          <p>Empresas</p>
         </div>
       </div>
     </div>
@@ -103,15 +112,18 @@ totalMonths = totalMonths % 12;
                 </div>
               </CardContent>
               <CardFooter className="flex justify-between">
-                {role.relatedProjects?.length > 0 && (
-                  <a
-                    href={role.relatedProjects[0]}
-                    target="_blank"
-                    class="text-blue-500 hover:underline"
-                  >
-                    Ver Proyecto
-                  </a>
-                )}
+                {Array.isArray(role.relatedProjects) &&
+                  role.relatedProjects.length > 0 &&
+                  role.relatedProjects[0] && (
+                    <a
+                      href={role.relatedProjects[0]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-blue-500 hover:underline"
+                    >
+                      Ver Proyecto
+                    </a>
+                  )}
               </CardFooter>
             </div>
           ))}
@@ -120,6 +132,5 @@ totalMonths = totalMonths % 12;
     }
   </section>
 </Layout>
-
 
 <!-- saacr a  componetes separados -->

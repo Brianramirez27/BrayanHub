@@ -28,6 +28,6 @@ devops:
   service: "GitHub Pages"
   url: "https://hub-codecrafters.github.io/PaginaWeb-Ernesto-Guhl/index.html"
   status: "active"
-description: "Aplicación web que digitaliza y centraliza la información histórica de Ernesto Gull. Contiene PDFs, imágenes, artículos de prensa y memorias personales, organizados para fácil consulta."
+
 url: "https://hub-codecrafters.github.io/PaginaWeb-Ernesto-Guhl/index.html"
 ---
