@@ -6,25 +6,36 @@ const projectsCollection = defineCollection({
     schema: z.object({
         title: z.string().min(3),
         images: z.array(z.string()).min(1),
+        description: z.string().min(10),
         technologies: z.array(z.string()).min(1),
         general: z.object({
             overview: z.string(),
             targetClient: z.string(),
+            notes:z.string().optional(),
         }),
         backend: z.object({
             architecture: z.string().min(3),
             technologies: z.array(z.string()).min(1), // Ahora es un array
-            designPatterns:z.array( z.string()),
-            performance: z.string().optional(),
+            designPatterns:z.array( z.string()).optional(),
+            performance: z.string().optional().optional(),
+            notes:z.string().optional(),
         }).optional(),
         frontend: z.object({
             architecture: z.string().min(3),
-            technologies: z.array(z.string()).min(1), // Ahora es un array
+            technologies: z.array(z.string()).min(1), 
             designPatterns: z.array(z.string()),
             performance: z.string().optional(),
+            notes:z.string().optional(),
         }).optional(),
-        devops:z.string().optional(),
-        description: z.string().min(10),
+        devops: z.object({
+            notes: z.string().optional(), 
+            service: z.string().optional(), 
+            url: z.string().url().optional(), 
+            status: z.enum(['active', 'inactive', 'unknown']).optional(),
+            technologies: z.array(z.string()).optional()
+        }),
+        noBackend:z.string().optional(),
+        noFrontend:z.string().optional(),
         url: z.string().url().optional(),
     }),
 });
