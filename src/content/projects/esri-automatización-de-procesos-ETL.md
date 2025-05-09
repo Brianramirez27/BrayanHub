@@ -21,6 +21,6 @@ backend:
 devops: 
   notes: "El apoyo al proyecto fue interrumpido antes de que se completara el despliegue de las automatizaciones desarrolladas. Debido a que el proyecto fue tomado por otro equipo, no se alcanzaron a desplegar las soluciones implementadas. Se desconoce si se realizó algún despliegue posterior o si se continuó con el proceso de automatización en producción."
   status: "unknown"
-description: "Automatización de la migración de datos de eventos desde archivos Excel hacia una base de datos SQL Server, utilizando Python para el proceso ETL. El proyecto tiene como objetivo la mejora del análisis de eventos mediante herramientas como Power BI."
+
 
 ---

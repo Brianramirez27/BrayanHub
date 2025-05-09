@@ -6,7 +6,6 @@ const projectsCollection = defineCollection({
     schema: z.object({
         title: z.string().min(3),
         images: z.array(z.string()).min(1),
-        description: z.string().min(10),
         technologies: z.array(z.string()).min(1),
         general: z.object({
             overview: z.string(),
@@ -54,7 +53,7 @@ const experienceCollection = defineCollection({
           description:z.string(),
           responsibilities: z.array(z.string()),
           technologies: z.array(z.string()),
-          relatedProjects: z.array(z.string()),
+          relatedProjects: z.array(z.string()).optional(),
         })
       ),
     }),

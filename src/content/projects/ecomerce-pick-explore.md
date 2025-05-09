@@ -1,33 +1,39 @@
 ---
-title: "Hitos Ernesto Gull"
+title: "ecommerce Peack Explorer"
 images:
-  - "/projects/esri-ernesto-guhl/foto-app-1.png"
-  - "/projects/esri-ernesto-guhl/foto-app-2.png"
-  - "/projects/esri-ernesto-guhl/foto-app-3.png"
-  - "/projects/esri-ernesto-guhl/foto-app-4.png"
+  - "/projects/ecomerce-pick-explore/foto-app-1.png"
+  - "/projects/ecomerce-pick-explore/foto-app-2.png"
+
 technologies:
-  - "JavaScript"
-  
+  - "TypeScript"
+  - "React"
+  - "TailwindCSS"
+
+
 general:
-  overview: "Sitio web estático diseñado para centralizar más de 200 archivos PDF con información histórica, logros y contribuciones del Dr. Ernesto Gull. La aplicación organiza estos contenidos para facilitar el acceso público, especialmente para estudiantes e investigadores."
-  targetClient: "Público académico, estudiantes y personas interesadas en la trayectoria de Ernesto Gull. El proyecto fue promovido por su esposa para preservar y compartir su legado."
-  nota: "Este proyecto fue desarrollado sin una arquitectura definida, según indicación del jefe técnico. Con el tiempo se detectaron problemas de rendimiento debido a la carga inicial de más de 200 PDFs e imágenes, por lo que se propuso migrar a React y externalizar estos recursos. Sin embargo, tras mi salida del equipo, no tengo información sobre si dichas mejoras se implementaron o se continuó con el desarrollo."
+  overview: "Plataforma web de comercio electrónico enfocada en centralizar la audiencia y fomentar la fidelización mediante visualización de productos y redirección a marketplaces como Amazon y Walmart. Diseñada para captar tráfico orgánico, promover ofertas exclusivas y permitir futuras expansiones hacia ventas directas."
+  targetClient: "Usuarios interesados en productos promocionados en Amazon y Walmart, con intención de construir una comunidad y base de datos sólida para futuras estrategias de remarketing y fidelización."
+  nota: "En esta fase inicial se trabajó principalmente en el Frontend, priorizando la validación visual del producto, autenticación segura y diseño escalable para el crecimiento del sistema."
 
 frontend:
-  architecture: "Este proyecto no contó con una arquitectura definida. Se construyó siguiendo decisiones puntuales del jefe técnico."
+  architecture: "Se definió una arquitectura modular basada en componentes reutilizables y separación clara de responsabilidades, con enfoque en escalabilidad futura."
   designPatterns:
-    - "Componentes reutilizables para facilitar mantenimiento y expansibilidad."
-  performance: "Optimización de renderizado para gestionar datos en tiempo real."
+    - "Atomic Design para organización de componentes"
+    - "Uso de hooks personalizados para manejo de estado y lógica"
+  performance: "Estrategias de lazy loading, optimización del bundle y buenas prácticas en React para mantener rendimiento aceptable desde el inicio."
   technologies:
-    - "HTML"
-    - "CSS"
-    - "JavaScript"
-noBackend: "Sin backend. Sitio estático orientado únicamente a frontend."
-devops: 
-  notes: "El proyecto fue desplegado inicialmente en GoDaddy. La URL original del cliente ya no está disponible. Esta es una demo independiente que armé para presentar avances."
-  service: "GitHub Pages"
-  url: "https://hub-codecrafters.github.io/PaginaWeb-Ernesto-Guhl/index.html"
-  status: "active"
-description: "Aplicación web que digitaliza y centraliza la información histórica de Ernesto Gull. Contiene PDFs, imágenes, artículos de prensa y memorias personales, organizados para fácil consulta."
-url: "https://hub-codecrafters.github.io/PaginaWeb-Ernesto-Guhl/index.html"
+    - "TypeScript"
+    - "React"
+    - "TailwindCSS"
+    - "Amazon Cognito"
+
+noBackend: "El sistema aún no cuenta con backend implementado. Actualmente se centra en el desarrollo Frontend y validación del concepto."
+
+devops:
+  notes: "El proyecto se encuentra en desarrollo. El despliegue se realizará una vez se finalice la etapa de integración con la API externa."
+
+description: "Aplicación web enfocada en visualización de productos y redirección a marketplaces como Amazon y Walmart. Implementa un sistema de autenticación segura y diseño modular para facilitar su evolución hacia funcionalidades más robustas en el futuro."
+
+
+
 ---
