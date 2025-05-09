@@ -40,6 +40,7 @@ function DialogProjectsWrapper({ project }: { project: CollectionEntry<"projects
       <DialogContent className="max-w-4xl h-[85vh] overflow-y-auto glass  flex flex-col text-primary  items-center ">
         <DialogHeader >
           <DialogTitle >{project.data.title}</DialogTitle>
+  
         </DialogHeader>
         <div className="relative aspect-video w-full  h-[50vh] rounded-lg flex justify-center items-center  mb-4   ">
           {project.data.images.map((img, index) => (
@@ -47,7 +48,7 @@ function DialogProjectsWrapper({ project }: { project: CollectionEntry<"projects
               key={index}
               src={img}
               alt={`Imagen ${index + 1}`}
-              className={`absolute  w-[70%] h-full object-cover rounded-lg transition-opacity duration-500 ${index === currentIndex ? "opacity-100" : "opacity-0"
+              className={`absolute  w-[70%] h-full object-fit rounded-lg transition-opacity duration-500 ${index === currentIndex ? "opacity-100" : "opacity-0"
                 }`}
             />
           ))}

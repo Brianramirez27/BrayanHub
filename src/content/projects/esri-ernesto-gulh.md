@@ -12,7 +12,7 @@ general:
   overview: "Sitio web estático diseñado para centralizar más de 200 archivos PDF con información histórica, logros y contribuciones del Dr. Ernesto Gull. La aplicación organiza estos contenidos para facilitar el acceso público, especialmente para estudiantes e investigadores."
   targetClient: "Público académico, estudiantes y personas interesadas en la trayectoria de Ernesto Gull. El proyecto fue promovido por su esposa para preservar y compartir su legado."
   nota: "Este proyecto fue desarrollado sin una arquitectura definida, según indicación del jefe técnico. Con el tiempo se detectaron problemas de rendimiento debido a la carga inicial de más de 200 PDFs e imágenes, por lo que se propuso migrar a React y externalizar estos recursos. Sin embargo, tras mi salida del equipo, no tengo información sobre si dichas mejoras se implementaron o se continuó con el desarrollo."
-
+noFrontend: ""
 frontend:
   architecture: "Este proyecto no contó con una arquitectura definida. Se construyó siguiendo decisiones puntuales del jefe técnico."
   designPatterns:
